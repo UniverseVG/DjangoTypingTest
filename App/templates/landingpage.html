@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>Typetest.com</title>
+    <link href= 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/Style1.css'%}">
+  
+    <!--Custom CSS-->
+    
+
+</head>
+
+<body>
+    
+   
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo" style="color: red;">Type Test</a>
+            </div>
+            
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <div class="nav__close" id="nav-close">
+                    <i class='bx bx-x'></i>
+                </div>
+
+                <ul class="nav__list">
+                    <li class="nav__item" ><a href="/LandingPage/" class="nav__link active" style="color: red;">Home</a></li>
+                    <li class="nav__item"  ><a href="/about/" class="nav__link" style="color: red;"> About</a></li>
+                    <li class="nav__item" ><a href="https://typetesting1.blogspot.com/2020/11/about-type-testing.html" target="_blank" class="nav__link" style="color: red;"> Blog</a></li>
+                    <li class="nav__item"><a href="/contact/" class="nav__link"  style="color: red;">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home" id="home">
+            <div class="home__container bd-grid">
+                <div class="home__img">
+                	{% load static %}
+                    <img src="{% static 'images/Send.png' %}" alt="" data-speed="-2" class="move">
+                    <img src="{% static 'images/Type.png' %}" alt="" data-speed="2" class="move">
+                    <img src="{% static 'images/Test.png' %}"alt="" data-speed="2" class="move">
+                    <img src="{% static 'images/Skills.png' %}"alt="" data-speed="-2" class="move">
+
+
+                </div>
+                <div class="home_data">
+                    <h1 class="home_title">"Test your own typing skills."</h1>
+                    <h2 class="home_description" style="color: red;">We at "Typetest" help you out in enhancing your typing skills<br>
+                        so that you can do your work super quick with maximum efficiency.
+                    </h2>
+                    <h3 style="color: Purple;">Lets get Started</h3>
+                    <a href="/register/" class="home_button">Get In</a>
+                    
+                 
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--GSAP-->
+     {% load static %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
+    <!--MAIN JS-->
+     {% load static %}
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
+
+   
+
+</body>
+
+</html>

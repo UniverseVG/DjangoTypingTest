@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    {% load static%}
+    <title>Typing Test Of Words</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Style.css' %}">
+
+</head>
+
+<body style="background-color: orange;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Typing Test</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/LandingPage/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Performance/">Performance</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/index/">Restart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Dashboard/">Dashboard</a>
+                </li>
+            </ul>
+            <form class="form-inline">
+               
+                <li class="btn btn-warning mr-2"><a>{{user.username}}</a></li>
+                <li class="btn btn-warning"><a href="{% url 'logout' %}">Logout</a></li>
+
+                
+            </form>
+        </div>
+    </nav>
+   
+
+    <div class="logic">
+        <div class="container">
+            <div class="heading">Typing Test Of Words
+            </div>
+            <div class="header">
+                <div class="wpm" style=" background-color:
+#00ff00;">
+                    <div class="header_text">WPM</div>
+                    <div class="curr_wpm" id="wpm">100</div>
+                </div>
+                <div class="cpm" style=" background-color:
+#00ff00;">
+                    <div class="header_text" style=" background-color:
+#00ff00;">CPM</div>
+                    <div class="curr_cpm" id="cpm">100</div>
+                </div>
+                <div class="errors"style=" background-color:
+#00ff00;">
+                    <div class="header_text" style=" background-color:
+#00ff00;">Errors</div>
+                    <div class="curr_errors" id="errors">0</div>
+                </div>
+                <div class="timer" style=" background-color:
+#00ff00;">
+                    <div class="header_text" style=" background-color:
+#00ff00;">Time</div>
+                    <div class="curr_time" id = "timer" >120s</div>
+                </div>
+                <div class="accuracy" style="background-color:
+#00ff00;">
+                    <div class="header_text" style=" background-color:
+#00ff00;">% Accuracy</div>
+                    <div class="curr_accuracy" id="acc">100</div>
+                </div>
+            </div>
+
+
+            <div class="quote" style=" background-color:
+#00ff00; font-weight: bold;" >Click on the area below to start the game.</div>
+            <textarea class="input_area" placeholder="Start typing here..." oninput="processCurrentText()"
+                onfocus="startGame()"  ></textarea>
+            <button class="restart_btn"  onclick="resetValues()">Restart</button>
+        </div>
+
+      {% load static %}
+    <script src="{% static 'js/TypingTest.js' %}"></script>
+
+        <!--Used  to save values to database by making a get request-->
+        <script type="text/javascript">
+            function Save_To_Database() {  
+                alert("Data Saved");                
+                var wpm    = document.getElementById('wpm').innerHTML; 
+                var cpm    = document.getElementById('cpm').innerHTML;
+                var errors = document.getElementById('errors').innerHTML;
+                var timer  = document.getElementById('timer').innerHTML;
+                var acc    = document.getElementById('acc').innerHTML;
+
+                var url = '/Save_To_Database?wpm=' + wpm + '&cpm=' + cpm + '&errors=' + errors + '&acc=' + acc;
+                alert(url);
+                var request = new XMLHttpRequest();
+                request.open("GET", url, true);
+                request.send();
+            
+        }
+
+       </script> 
+        
+
+
+</body>
+
+</html>

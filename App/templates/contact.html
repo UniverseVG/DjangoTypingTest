@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Contact Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <span class="big-circle"></span>
+      <img src="{% static 'images/shape.png' %}" class="square" alt="" />
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Contact Us</h3>
+          <p class="text">
+           Any Queries,don't hesitate just ping us through this form.
+          </p>
+
+          <div class="info">
+            <div class="information">
+              <img src="{% static 'images/location.png' %}" class="icon" alt="" />
+              <p>Banglore</p>
+            </div>
+            <div class="information">
+              <img src="{% static 'images/email.png' %}" class="icon" alt="" />
+              <p>weteam6@gmail.com</p>
+            </div>
+            <div class="information">
+              <img src="{% static 'images/phone.png' %}" class="icon" alt="" />
+              <p>+91 8431121609</p>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Connect with us :</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/gmvarun.varun.5/">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://twitter.com/GMVarun2">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://www.instagram.com/thenameisvarungm/">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/varun-gm-86694a1a4/">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/UniverseVG">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          <form action="index.html" autocomplete="off">
+            <h3 class="title">Contact us</h3>
+            <div class="input-container">
+              <input type="text" name="name" class="input" required/>
+              <label for="">Username</label>
+              <span>Username</span>
+            </div>
+            <div class="input-container">
+              <input type="email" name="email" class="input" required />
+              <label for="">Email</label>
+              <span>Email</span>
+            </div>
+            <div class="input-container">
+              <input type="tel" name="phone" class="input" />
+              <label for="">Phone</label>
+              <span>Phone</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea name="message" class="input" required ></textarea>
+              <label for="">Message</label>
+              <span>Message</span>
+            </div>
+            <input type="submit" value="Send" class="btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="{% static 'js/app.js' %}"></script>
+  </body>
+</html>

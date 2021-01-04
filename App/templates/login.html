@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static%}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   
+      <style type="text/css">
+        body{
+            background-image: url("{% static 'images/login.jpg' %}");
+              }
+
+    .container{
+         margin:200px;
+         margin-left: 200px;
+     } 
+     
+      
+
+      
+    </style>
+
+    {% load crispy_forms_tags %}
+</head>
+<body>
+{% block content %}
+    {% if user.is_authenticated %}
+         <meta http-equiv="REFRESH" content="0;url='Dashboard'">
+    {% else %}
+    <div class="container">
+    </br>
+        <center>
+        <h2 style="font-family: sans-serif; font-weight: bolder; color: lightgreen;">Login TypingTest</h2>
+        <form method="POST" class="mt-3 col-6" style="color: red; font-weight: bolder;">
+            {% csrf_token %}
+            {{ form | crispy }}
+        <button class="btn btn-primary mb-5" type="submit">Login</button>
+        </form></center>
+    {% endif %}    
+    </div>
+{% endblock content %}
+
+</body>
+</html>

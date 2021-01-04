@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Of Typing Test of Words</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+h1{
+    color: red;
+}
+body{
+    font-family: 'Lobster', cursive;
+    background-image: url({% static 'images/bg.jpg' %});
+    background-size:cover;
+}
+
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+
+
+    </style>
+
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <h1><center>Hello, {{user.username}} <br> <br>
+        Your Previous Scores are: <br>
+                
+            {% if Score %}
+            <table class="content-table" align="center" cellspacing="15"  border="3" width="100%" bgColor="Powderblue">
+                <thead>
+                <th>Words per minute </th>
+                <th>Character per minute</th> 
+                <th>Errors</th>
+                <th>Accuracy</th>
+                <th>Time</th>
+                </thead>
+                {% for field in Score  %}
+                    <tr align="center">
+                        <td>{{ field.W_pm }}</td>
+                        <td>{{ field.C_pm }}</td>
+                        <td>{{ field.Errors }}</td>
+                        <td>{{ field.Accuracy }}</td>
+                        <td>{{ field.Time }}</td>
+                    </tr>
+                {% endfor %}    
+            </table>
+            {% else %}
+            <p>No Records Found</p>
+            {% endif %}
+    {% endif %}
+    </h1></center>        
+</body>
+</html>
